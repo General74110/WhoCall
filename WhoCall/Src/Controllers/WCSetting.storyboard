@@ -47,10 +47,14 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_spam.png" translatesAutoresizingMaskIntoConstraints="NO" id="10h-lu-bEP">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="骚扰电话预警" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e4-i3-bXw">
+                                                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="骚扰电话预警" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e4-i3-bXw">
                                                     <rect key="frame" x="55" y="11" width="102" height="21"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="GaH-Ka-DPH" appends="YES" id="UHg-ic-owa"/>
+                                                    </connections>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJC-Y7-LTP">
                                                     <rect key="frame" x="256" y="6" width="51" height="31"/>
@@ -84,11 +88,15 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="XLt-rv-Gqe">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来电归属地提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efX-Wk-eYM">
+                                                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来电归属地提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efX-Wk-eYM">
                                                     <rect key="frame" x="55" y="11" width="119" height="21"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="fSe-9m-VFL" appends="YES" id="6ng-6i-obz"/>
+                                                    </connections>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTD-YR-eAf">
                                                     <rect key="frame" x="256" y="6" width="51" height="31"/>
@@ -123,10 +131,14 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_contact.png" translatesAutoresizingMaskIntoConstraints="NO" id="VFk-vh-bCE">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人姓名播报" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGe-7A-GOm">
+                                                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人姓名播报" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGe-7A-GOm">
                                                     <rect key="frame" x="55" y="11" width="119" height="21"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="xQM-6S-itj" appends="YES" id="RPl-H0-uhM"/>
+                                                    </connections>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ANs-Rr-eCI">
                                                     <rect key="frame" x="256" y="6" width="51" height="31"/>
@@ -195,6 +207,21 @@ Cg
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3P-ue-GgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xQM-6S-itj">
+                    <connections>
+                        <action selector="tapSpeak:" destination="IW0-BI-MGU" id="ZBY-zf-QFO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GaH-Ka-DPH">
+                    <connections>
+                        <action selector="tapSpeak:" destination="IW0-BI-MGU" id="Cdl-VF-JCa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fSe-9m-VFL">
+                    <connections>
+                        <action selector="tapSpeak:" destination="IW0-BI-MGU" id="oyV-73-sjt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-59" y="-62"/>
         </scene>

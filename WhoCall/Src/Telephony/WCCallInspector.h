@@ -28,4 +28,8 @@
 - (void)startInspect;
 - (void)stopInspect;
 
+//
+- (void)speakText:(NSString *)text;
+- (void)stopSpeakText;
+
 @end

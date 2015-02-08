@@ -24,6 +24,7 @@
 {
     //注册本地推送
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    application.applicationIconBadgeNumber = 0;
     
     // prevent sleep
     self.sleepPreventer = [[MMPDeepSleepPreventer alloc] init];

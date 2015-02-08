@@ -125,10 +125,11 @@
                      NSString *msg = [NSString stringWithFormat:@"已挂断 %@ - %@", liarDetail, number];
                      [self sendLocalNotification:msg];
                  } else {
-                     [self notifyMessage:liarDetail forPhoneNumber:number];
                      //
                      NSString *msg = [NSString stringWithFormat:@"%@ - %@", liarDetail, number];
                      [self sendLocalNotification:msg];
+                     //
+                     [self notifyMessage:liarDetail forPhoneNumber:number];
                  }
              } else {
                  checkPhoneLocation();
@@ -190,9 +191,10 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         if ([self.incomingPhoneNumber isEqualToString:phoneNumber]) {
+            [self stopSpeakText];
             [self speakText:text];
             // 下一轮提醒
-            [self notifyMessage:text afterDealy:5.0 forPhoneNumber:phoneNumber];
+            [self notifyMessage:text afterDealy:4.99 forPhoneNumber:phoneNumber];
         }
     });
 }
@@ -203,6 +205,7 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         if ([self.incomingPhoneNumber isEqualToString:phoneNumber]) {
+            [self stopSpeakText];
             [self speakText:text];
             [self notifyMessage:text afterDealy:delay forPhoneNumber:phoneNumber];
         }
@@ -215,14 +218,20 @@
         return;
     }
     
+    if (![NSThread isMainThread]) {
+        [self performSelectorOnMainThread:@selector(speakText:) withObject:text waitUntilDone:NO];
+        return;
+    }
+    
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
-    utterance.rate = AVSpeechUtteranceMinimumSpeechRate;
+    CGFloat ratio = 0.15;
+    utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ratio*(AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate);
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
         self.synthesizer = [[AVSpeechSynthesizer alloc] init];
-    });
+//    });
     
     [self.synthesizer speakUtterance:utterance];
 }
@@ -261,15 +270,16 @@
         //内容
         noti.alertBody = message;
         
-        //显示在icon上的红色圈中的数子
-        noti.applicationIconBadgeNumber = 1;
-        
         //设置userinfo 方便在之后需要撤销的时候使用
         //NSDictionary *infoDic = [NSDictionary dictionaryWithObject:@"name" forKey:@"key"];
         //noti.userInfo = infoDic;
         
-        //添加推送到uiapplication
+        
         UIApplication *app = [UIApplication sharedApplication];
+        //显示在icon上的红色圈中的数子
+        noti.applicationIconBadgeNumber = app.applicationIconBadgeNumber+1;
+        
+        //添加推送到uiapplication
         [app scheduleLocalNotification:noti];  
         
     }

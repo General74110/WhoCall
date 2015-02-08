@@ -104,7 +104,7 @@
 	// We create a new repeating timer, that begins firing immediately and then every five seconds afterwards.
 	// Every time it fires, it calls -mmp_playPreventSleepSound.
 	NSTimer *preventSleepTimer = [[NSTimer alloc] initWithFireDate:[NSDate date]
-	                                                      interval:5.0
+	                                                      interval:4.99
 	                                                        target:self
 	                                                      selector:@selector(mmp_playPreventSleepSound)
 	                                                      userInfo:nil

@@ -52,6 +52,13 @@
 {
 }
 
+- (IBAction)tapSpeak:(UITapGestureRecognizer *)sender
+{
+    UILabel* lb = (UILabel*)sender.view;
+    [[WCCallInspector sharedInspector] stopSpeakText];
+    [[WCCallInspector sharedInspector] speakText:lb.text];
+}
+
 - (IBAction)onSettingValueChanged:(UISwitch *)sender
 {
     WCCallInspector *inspector = [WCCallInspector sharedInspector];
