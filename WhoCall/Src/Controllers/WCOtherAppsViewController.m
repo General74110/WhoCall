@@ -43,8 +43,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (cell == self.cellNobody) {
-        [[UIApplication sharedApplication] openURL:
-         [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id740362780"]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id740362780"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cccsee.cn"]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

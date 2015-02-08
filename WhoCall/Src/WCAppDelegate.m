@@ -22,6 +22,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //注册本地推送
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    
     // prevent sleep
     self.sleepPreventer = [[MMPDeepSleepPreventer alloc] init];
     
@@ -64,6 +67,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification
+{
+    [[[UIAlertView alloc] initWithTitle:nil  message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    
+    //这里，你就可以通过notification的useinfo，干一些你想做的事情了
+    application.applicationIconBadgeNumber -= 1;
+    
 }
 
 @end

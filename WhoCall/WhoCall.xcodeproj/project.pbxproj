@@ -21,7 +21,6 @@
 		466216801838B729008DC8FA /* MMPSilence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4662167D1838B729008DC8FA /* MMPSilence.wav */; };
 		466216841838B767008DC8FA /* WCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466216821838B767008DC8FA /* WCSettingViewController.m */; };
 		466216871838B8F2008DC8FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 466216861838B8F2008DC8FA /* Localizable.strings */; };
-		466216891838DEFC008DC8FA /* WCSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466216881838DEFC008DC8FA /* WCSetting.storyboard */; };
 		4662168C1838FC87008DC8FA /* icon_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 4662168A1838FC87008DC8FA /* icon_location.png */; };
 		4662168D1838FC87008DC8FA /* icon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4662168B1838FC87008DC8FA /* icon_location@2x.png */; };
 		466216901838FF2A008DC8FA /* icon_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 4662168E1838FF2A008DC8FA /* icon_contact.png */; };
@@ -49,6 +48,7 @@
 		4662170C183C521F008DC8FA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4662170B183C521F008DC8FA /* libsqlite3.dylib */; };
 		46621716183D11A1008DC8FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46621715183D11A1008DC8FA /* libz.dylib */; };
 		46D31E3A1863398900865376 /* WCHangupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D31E391863398900865376 /* WCHangupViewController.m */; };
+		6DA3EDE71A87823100EF947E /* WCSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA3EDE61A87823100EF947E /* WCSetting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +73,6 @@
 		466216811838B767008DC8FA /* WCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCSettingViewController.h; sourceTree = "<group>"; };
 		466216821838B767008DC8FA /* WCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCSettingViewController.m; sourceTree = "<group>"; };
 		466216861838B8F2008DC8FA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		466216881838DEFC008DC8FA /* WCSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WCSetting.storyboard; sourceTree = "<group>"; };
 		4662168A1838FC87008DC8FA /* icon_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_location.png; sourceTree = "<group>"; };
 		4662168B1838FC87008DC8FA /* icon_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_location@2x.png"; sourceTree = "<group>"; };
 		4662168E1838FF2A008DC8FA /* icon_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_contact.png; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		46621715183D11A1008DC8FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		46D31E381863398900865376 /* WCHangupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCHangupViewController.h; sourceTree = "<group>"; };
 		46D31E391863398900865376 /* WCHangupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCHangupViewController.m; sourceTree = "<group>"; };
+		6DA3EDE61A87823100EF947E /* WCSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WCSetting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +241,7 @@
 		4662167E1838B729008DC8FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				466216881838DEFC008DC8FA /* WCSetting.storyboard */,
+				6DA3EDE61A87823100EF947E /* WCSetting.storyboard */,
 				466216811838B767008DC8FA /* WCSettingViewController.h */,
 				466216821838B767008DC8FA /* WCSettingViewController.m */,
 				46D31E381863398900865376 /* WCHangupViewController.h */,
@@ -329,7 +329,7 @@
 				ORGANIZATIONNAME = "Wang Xiaolei";
 				TargetAttributes = {
 					461320461838A357006634C7 = {
-						DevelopmentTeam = CZ2PUS96XT;
+						DevelopmentTeam = SA2PKKEED2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -367,12 +367,12 @@
 				466216941838FF35008DC8FA /* icon_spam.png in Resources */,
 				466216911838FF2A008DC8FA /* icon_contact@2x.png in Resources */,
 				4662168D1838FC87008DC8FA /* icon_location@2x.png in Resources */,
-				466216891838DEFC008DC8FA /* WCSetting.storyboard in Resources */,
 				4613208B1838A788006634C7 /* InfoPlist.strings in Resources */,
 				466216901838FF2A008DC8FA /* icon_contact.png in Resources */,
 				466216F5183C47B6008DC8FA /* telocation.db in Resources */,
 				461320861838A6A7006634C7 /* AppImages.xcassets in Resources */,
 				466216801838B729008DC8FA /* MMPSilence.wav in Resources */,
+				6DA3EDE71A87823100EF947E /* WCSetting.storyboard in Resources */,
 				466216951838FF35008DC8FA /* icon_spam@2x.png in Resources */,
 				466216991839014A008DC8FA /* icon_nobody@2x.png in Resources */,
 			);
@@ -499,11 +499,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Src/WhoCall-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -514,11 +516,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Src/WhoCall-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

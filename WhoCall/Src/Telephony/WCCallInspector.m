@@ -113,18 +113,22 @@
     };
     
     // 欺诈电话联网查，等待查询结束才能知道要不要提示地点
+    //if (self.handleLiarPhone) {//测试
     if (self.handleLiarPhone && !isContact) {
         [[WCLiarPhoneList sharedList]
          checkLiarNumber:number
          withCompletion:^(WCLiarPhoneType liarType, NSString *liarDetail) {
              if (liarType != kWCLiarPhoneNone) {
                  if ([self shouldHangupLiarType:liarType]) {
-                     [self.callCenter disconnectCall:call];
+                     [self.callCenter disconnectCall:call];//iOS7 此私函数的有api已经失效
                      
                      NSString *msg = [NSString stringWithFormat:@"已挂断 %@ - %@", liarDetail, number];
                      [self sendLocalNotification:msg];
                  } else {
                      [self notifyMessage:liarDetail forPhoneNumber:number];
+                     //
+                     NSString *msg = [NSString stringWithFormat:@"%@ - %@", liarDetail, number];
+                     [self sendLocalNotification:msg];
                  }
              } else {
                  checkPhoneLocation();
@@ -232,9 +236,43 @@
 
 - (void)sendLocalNotification:(NSString *)message
 {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = message;
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+//    UILocalNotification *notification = [[UILocalNotification alloc] init];
+//    notification.alertBody = message;
+//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
+    
+    //设置1秒之后
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:1];
+    
+    //chuagjian一个本地推送
+    UILocalNotification *noti = [[UILocalNotification alloc] init];
+    if (noti) {
+        
+        //设置推送时间
+        noti.fireDate = date;
+        //设置时区
+        noti.timeZone = [NSTimeZone defaultTimeZone];
+        //设置重复间隔
+        noti.repeatInterval = NSWeekCalendarUnit;
+        
+        //推送声音
+        noti.soundName = UILocalNotificationDefaultSoundName;
+        
+        //内容
+        noti.alertBody = message;
+        
+        //显示在icon上的红色圈中的数子
+        noti.applicationIconBadgeNumber = 1;
+        
+        //设置userinfo 方便在之后需要撤销的时候使用
+        //NSDictionary *infoDic = [NSDictionary dictionaryWithObject:@"name" forKey:@"key"];
+        //noti.userInfo = infoDic;
+        
+        //添加推送到uiapplication
+        UIApplication *app = [UIApplication sharedApplication];
+        [app scheduleLocalNotification:noti];  
+        
+    }
 }
 
 - (void)vibrateDevice
