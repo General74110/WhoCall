@@ -261,8 +261,8 @@
         noti.fireDate = date;
         //设置时区
         noti.timeZone = [NSTimeZone defaultTimeZone];
-        //设置重复间隔
-        noti.repeatInterval = NSWeekCalendarUnit;
+        //设置重复间隔 0 表示不重复
+        noti.repeatInterval = 0;//NSWeekCalendarUnit;
         
         //推送声音
         noti.soundName = UILocalNotificationDefaultSoundName;
