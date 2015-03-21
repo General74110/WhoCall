@@ -59,7 +59,7 @@
                                                                                                   NULL,
                                                                                                   CFSTR("!*'();:@&=+$,/?%#[]"),
                                                                                                   kCFStringEncodingUTF8));
-        NSURL *searchURL = [NSURL URLWithString:[@"http://www.baidu.com/s?wd=" stringByAppendingString:escaped]];
+        NSURL *searchURL = [NSURL URLWithString:[@"https://www.baidu.com/s?wd=" stringByAppendingString:escaped]];
         NSString *searchResult = [NSString stringWithContentsOfURL:searchURL
                                                        httpHeaders:@{@"User-Agent": @"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36"}
                                                           encoding:NSUTF8StringEncoding

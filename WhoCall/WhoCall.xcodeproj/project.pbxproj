@@ -48,7 +48,9 @@
 		4662170C183C521F008DC8FA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4662170B183C521F008DC8FA /* libsqlite3.dylib */; };
 		46621716183D11A1008DC8FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46621715183D11A1008DC8FA /* libz.dylib */; };
 		46D31E3A1863398900865376 /* WCHangupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D31E391863398900865376 /* WCHangupViewController.m */; };
+		6D6029501ABDC66000475CBE /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D60294F1ABDC66000475CBE /* UIColor+Hex.m */; };
 		6DA3EDE71A87823100EF947E /* WCSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA3EDE61A87823100EF947E /* WCSetting.storyboard */; };
+		6DC080311ABD6A2A0080C5A4 /* WCRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC080301ABD6A2A0080C5A4 /* WCRecordTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,7 +118,11 @@
 		46621715183D11A1008DC8FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		46D31E381863398900865376 /* WCHangupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCHangupViewController.h; sourceTree = "<group>"; };
 		46D31E391863398900865376 /* WCHangupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCHangupViewController.m; sourceTree = "<group>"; };
+		6D60294E1ABDC66000475CBE /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		6D60294F1ABDC66000475CBE /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		6DA3EDE61A87823100EF947E /* WCSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WCSetting.storyboard; sourceTree = "<group>"; };
+		6DC0802F1ABD6A2A0080C5A4 /* WCRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRecordTableViewController.h; sourceTree = "<group>"; };
+		6DC080301ABD6A2A0080C5A4 /* WCRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRecordTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,7 @@
 		466216791838B729008DC8FA /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				6D60294D1ABDC66000475CBE /* UIColor+ */,
 				466216F9183C4AFD008DC8FA /* FMDB */,
 				466216EF183BB2DC008DC8FA /* MKAdditions */,
 				4662167A1838B729008DC8FA /* MMPDeepSleepPreventer */,
@@ -248,6 +255,8 @@
 				46D31E391863398900865376 /* WCHangupViewController.m */,
 				466216D7183A46B4008DC8FA /* WCOtherAppsViewController.h */,
 				466216D8183A46B4008DC8FA /* WCOtherAppsViewController.m */,
+				6DC0802F1ABD6A2A0080C5A4 /* WCRecordTableViewController.h */,
+				6DC080301ABD6A2A0080C5A4 /* WCRecordTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +307,15 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		6D60294D1ABDC66000475CBE /* UIColor+ */ = {
+			isa = PBXGroup;
+			children = (
+				6D60294E1ABDC66000475CBE /* UIColor+Hex.h */,
+				6D60294F1ABDC66000475CBE /* UIColor+Hex.m */,
+			);
+			path = "UIColor+";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,7 +347,7 @@
 				ORGANIZATIONNAME = "Wang Xiaolei";
 				TargetAttributes = {
 					461320461838A357006634C7 = {
-						DevelopmentTeam = SA2PKKEED2;
+						DevelopmentTeam = L9E89VMHQT;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -389,6 +407,7 @@
 				466216E3183A6EFD008DC8FA /* WCCallInspector.m in Sources */,
 				461320881838A6A7006634C7 /* WCAppDelegate.m in Sources */,
 				46621705183C4AFD008DC8FA /* FMDatabase.m in Sources */,
+				6D6029501ABDC66000475CBE /* UIColor+Hex.m in Sources */,
 				466216DD183A630F008DC8FA /* WCCallCenter.m in Sources */,
 				4662170A183C4AFD008DC8FA /* FMResultSet.m in Sources */,
 				466216F8183C49AF008DC8FA /* WCPhoneLocator.m in Sources */,
@@ -397,6 +416,7 @@
 				466216E0183A6319008DC8FA /* WCCall.m in Sources */,
 				461320871838A6A7006634C7 /* main.m in Sources */,
 				466216EC183BA2D2008DC8FA /* WCUtil.m in Sources */,
+				6DC080311ABD6A2A0080C5A4 /* WCRecordTableViewController.m in Sources */,
 				4662167F1838B729008DC8FA /* MMPDeepSleepPreventer.m in Sources */,
 				466216E6183BA292008DC8FA /* WCAddressBook.m in Sources */,
 				466216841838B767008DC8FA /* WCSettingViewController.m in Sources */,
@@ -505,7 +525,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6779b09b-123b-44d4-98c2-3f5aa778d313";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -522,7 +542,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6779b09b-123b-44d4-98c2-3f5aa778d313";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

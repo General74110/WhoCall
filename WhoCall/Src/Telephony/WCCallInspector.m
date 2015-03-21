@@ -13,6 +13,7 @@
 #import "WCAddressBook.h"
 #import "WCLiarPhoneList.h"
 #import "WCPhoneLocator.h"
+#import "UIColor+Hex.h"
 
 
 // 保存设置key
@@ -93,10 +94,15 @@
     BOOL isContact = [[WCAddressBook defaultAddressBook] isContactPhoneNumber:number];
     
     // 优先播报联系人
-    if (self.handleContactName && isContact) {
+    if (isContact) {
         NSString *callerName = [[WCAddressBook defaultAddressBook] contactNameForPhoneNumber:number];
         NSString *msg = [NSString stringWithFormat:@"%@ 打来电话", callerName];
-        [self notifyMessage:msg forPhoneNumber:number];
+        if(self.handleContactName)[self notifyMessage:msg forPhoneNumber:number];
+        //
+        NSString *location = [[WCPhoneLocator sharedLocator] locationForPhoneNumber:number];
+        if(location) callerName = [NSString stringWithFormat:@"%@  %@",location,callerName];
+        [self addRecord:number sign:callerName color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+        //
         return;
     }
     
@@ -108,7 +114,12 @@
                 // 注意格式，除了地址，还可以有“本地”等
                 NSString *msg = [NSString stringWithFormat:@"%@电话", location];
                 [self notifyMessage:msg forPhoneNumber:number];
+                //
+                [self addRecord:number sign:msg color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+                //
             }
+        }else{
+            [self addRecord:number sign:@"" color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
         }
     };
     
@@ -131,6 +142,9 @@
                      //
                      [self notifyMessage:liarDetail forPhoneNumber:number];
                  }
+                 //
+                 [self addRecord:number sign:liarDetail color:[UIColor redColor]];
+                 //
              } else {
                  checkPhoneLocation();
              }
@@ -288,6 +302,38 @@
 - (void)vibrateDevice
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
+-(NSString*)recordsPath
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [[paths firstObject] stringByAppendingPathComponent:@"record.cccsee.cn"];
+    return documentsDirectory;
+}
+
+- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor *)color
+{
+    NSArray* arr = [self records];
+    NSMutableArray* marr = [NSMutableArray arrayWithArray:arr];
+    NSDate* date = [NSDate date];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:number,@"number",
+                          sign,@"sign",
+                          date,@"date",
+                          [UIColor changeUIColorToRGB:color],@"color",nil];
+    [marr addObject:dict];
+    //
+    BOOL ret = [marr writeToFile:[self recordsPath] atomically:YES];
+    if (!ret) {
+        NSLog(@"write Error");
+    }
+}
+
+- (NSArray *)records
+{
+    NSString* path = [self recordsPath];
+    NSArray* arr = [[NSArray alloc] initWithContentsOfFile:path];
+    return arr;
 }
 
 @end

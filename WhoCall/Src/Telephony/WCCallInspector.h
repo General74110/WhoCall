@@ -32,4 +32,9 @@
 - (void)speakText:(NSString *)text;
 - (void)stopSpeakText;
 
+//
+-(NSString*)recordsPath;
+- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor*)color;
+- (NSArray*)records;
+
 @end
