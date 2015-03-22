@@ -49,6 +49,9 @@
 		46621716183D11A1008DC8FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46621715183D11A1008DC8FA /* libz.dylib */; };
 		46D31E3A1863398900865376 /* WCHangupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D31E391863398900865376 /* WCHangupViewController.m */; };
 		6D6029501ABDC66000475CBE /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D60294F1ABDC66000475CBE /* UIColor+Hex.m */; };
+		6D7654EF1ABEF4E700506F29 /* icon_msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7654ED1ABEF4E700506F29 /* icon_msg.png */; };
+		6D7654F01ABEF4E700506F29 /* icon_msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7654EE1ABEF4E700506F29 /* icon_msg@2x.png */; };
+		6D7654F21ABEFFC600506F29 /* icon_msg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7654F11ABEFFC600506F29 /* icon_msg@3x.png */; };
 		6DA3EDE71A87823100EF947E /* WCSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA3EDE61A87823100EF947E /* WCSetting.storyboard */; };
 		6DC080311ABD6A2A0080C5A4 /* WCRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC080301ABD6A2A0080C5A4 /* WCRecordTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -120,6 +123,9 @@
 		46D31E391863398900865376 /* WCHangupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCHangupViewController.m; sourceTree = "<group>"; };
 		6D60294E1ABDC66000475CBE /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		6D60294F1ABDC66000475CBE /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		6D7654ED1ABEF4E700506F29 /* icon_msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_msg.png; sourceTree = "<group>"; };
+		6D7654EE1ABEF4E700506F29 /* icon_msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_msg@2x.png"; sourceTree = "<group>"; };
+		6D7654F11ABEFFC600506F29 /* icon_msg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_msg@3x.png"; sourceTree = "<group>"; };
 		6DA3EDE61A87823100EF947E /* WCSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WCSetting.storyboard; sourceTree = "<group>"; };
 		6DC0802F1ABD6A2A0080C5A4 /* WCRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRecordTableViewController.h; sourceTree = "<group>"; };
 		6DC080301ABD6A2A0080C5A4 /* WCRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRecordTableViewController.m; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				4613207C1838A6A7006634C7 /* AppImages.xcassets */,
+				6D7654ED1ABEF4E700506F29 /* icon_msg.png */,
+				6D7654EE1ABEF4E700506F29 /* icon_msg@2x.png */,
+				6D7654F11ABEFFC600506F29 /* icon_msg@3x.png */,
 				4662168E1838FF2A008DC8FA /* icon_contact.png */,
 				4662168F1838FF2A008DC8FA /* icon_contact@2x.png */,
 				4662168A1838FC87008DC8FA /* icon_location.png */,
@@ -380,8 +389,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				466216981839014A008DC8FA /* icon_nobody.png in Resources */,
+				6D7654EF1ABEF4E700506F29 /* icon_msg.png in Resources */,
 				4662168C1838FC87008DC8FA /* icon_location.png in Resources */,
 				466216871838B8F2008DC8FA /* Localizable.strings in Resources */,
+				6D7654F21ABEFFC600506F29 /* icon_msg@3x.png in Resources */,
 				466216941838FF35008DC8FA /* icon_spam.png in Resources */,
 				466216911838FF2A008DC8FA /* icon_contact@2x.png in Resources */,
 				4662168D1838FC87008DC8FA /* icon_location@2x.png in Resources */,
@@ -389,6 +400,7 @@
 				466216901838FF2A008DC8FA /* icon_contact.png in Resources */,
 				466216F5183C47B6008DC8FA /* telocation.db in Resources */,
 				461320861838A6A7006634C7 /* AppImages.xcassets in Resources */,
+				6D7654F01ABEF4E700506F29 /* icon_msg@2x.png in Resources */,
 				466216801838B729008DC8FA /* MMPSilence.wav in Resources */,
 				6DA3EDE71A87823100EF947E /* WCSetting.storyboard in Resources */,
 				466216951838FF35008DC8FA /* icon_spam@2x.png in Resources */,

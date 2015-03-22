@@ -355,7 +355,7 @@ ICAgICAgICAgICAgICAgICAgA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WCRecord" rowHeight="56" id="Ahi-N6-nKW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WCRecord" rowHeight="56" id="Ahi-N6-nKW" customClass="WCRecordTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ahi-N6-nKW" id="PFS-ZM-Tih">
@@ -373,13 +373,27 @@ ICAgICAgICAgICAgICAgICAgA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMn-c5-NzG">
-                                            <rect key="frame" x="166" y="17" width="138" height="21"/>
+                                            <rect key="frame" x="121" y="19" width="138" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-w7-5Iz">
+                                            <rect key="frame" x="249" y="2" width="71" height="51"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <state key="normal" image="icon_msg.png"/>
+                                            <connections>
+                                                <action selector="onBtnMsg:" destination="KBo-Lh-OUm" eventType="touchUpInside" id="zIX-FY-ozX"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="MMn-c5-NzG" id="9ne-qo-uJ4"/>
+                                    <outlet property="phoneInfoLabel" destination="eyz-aK-01D" id="5VO-tN-d0G"/>
+                                    <outlet property="phoneLabel" destination="TEv-YP-FdW" id="6WR-6Y-EZy"/>
+                                    <outlet property="smsBtn" destination="Eca-w7-5Iz" id="AaF-0I-UVN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -462,6 +476,7 @@ ICAgICAgICAgICAgICAgICAgA
     <resources>
         <image name="icon_contact.png" width="25" height="25"/>
         <image name="icon_location.png" width="25" height="25"/>
+        <image name="icon_msg.png" width="25" height="25"/>
         <image name="icon_nobody.png" width="45" height="45"/>
         <image name="icon_spam.png" width="25" height="25"/>
     </resources>

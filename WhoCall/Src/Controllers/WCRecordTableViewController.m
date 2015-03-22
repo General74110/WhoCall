@@ -16,6 +16,9 @@
 
 @end
 
+@implementation WCRecordTableViewCell
+@end
+
 @implementation WCRecordTableViewController
 {
     NSMutableArray* arr_records;
@@ -115,31 +118,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WCRecord"];
-    
-    UILabel* label1 = (UILabel*)[cell viewWithTag:1];
-    UILabel* label2 = (UILabel*)[cell viewWithTag:2];
-    UILabel* label3 = (UILabel*)[cell viewWithTag:3];
+    WCRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WCRecord"];
     
     NSDictionary* dict = [arr_records_reverse objectAtIndex:indexPath.row];
     NSDate* date = [dict objectForKey:@"date"];
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    label1.text = [dict objectForKey:@"number"];
-    label2.text = [dict objectForKey:@"sign"];
-    label3.text = [format stringFromDate:date];
+    cell.phoneLabel.text = [dict objectForKey:@"number"];
+    cell.phoneInfoLabel.text = [dict objectForKey:@"sign"];
+    cell.dateLabel.text = [format stringFromDate:date];
+    cell.smsBtn.tag = indexPath.row;
     
     NSString* clr = [dict objectForKey:@"color"];
     UIColor* color = [UIColor colorWithHexString:clr];
     if (color) {
-        label1.textColor = color;
+        cell.phoneLabel.textColor = color;
     }else{
-        label1.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+        cell.phoneLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
     }
     
     return cell;
 }
+- (IBAction)onBtnMsg:(id)sender {
+    NSInteger tag = ((UIButton*)sender).tag;
+    NSDictionary* dict = [arr_records_reverse objectAtIndex:tag];
+    NSString* url = [NSString stringWithFormat:@"sms://%@",[dict objectForKey:@"number"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary* dict = [arr_records_reverse objectAtIndex:indexPath.row];
+    NSString* url = [NSString stringWithFormat:@"tel://%@",[dict objectForKey:@"number"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
 
 /*
 // Override to support conditional editing of the table view.
