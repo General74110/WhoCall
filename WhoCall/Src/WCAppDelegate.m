@@ -22,9 +22,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //处理本地通知
+    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotification) {
+        [self application:application didReceiveLocalNotification:localNotification];
+    }
     //注册本地推送
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     application.applicationIconBadgeNumber = 0;
+    [application cancelAllLocalNotifications];
     
     // prevent sleep
     self.sleepPreventer = [[MMPDeepSleepPreventer alloc] init];

@@ -294,7 +294,8 @@
         noti.applicationIconBadgeNumber = app.applicationIconBadgeNumber+1;
         
         //添加推送到uiapplication
-        [app scheduleLocalNotification:noti];  
+//        [app scheduleLocalNotification:noti];  //时间触发通知
+        [app presentLocalNotificationNow:noti];  //立即发送通知
         
     }
 }
