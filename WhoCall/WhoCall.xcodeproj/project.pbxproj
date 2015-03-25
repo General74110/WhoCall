@@ -356,7 +356,6 @@
 				ORGANIZATIONNAME = "Wang Xiaolei";
 				TargetAttributes = {
 					461320461838A357006634C7 = {
-						DevelopmentTeam = L9E89VMHQT;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -537,7 +536,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6779b09b-123b-44d4-98c2-3f5aa778d313";
+				PROVISIONING_PROFILE = "30b05a65-76b0-4825-a6c6-bccfe83b5267";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -554,7 +553,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support/WhoCall-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6779b09b-123b-44d4-98c2-3f5aa778d313";
+				PROVISIONING_PROFILE = "30b05a65-76b0-4825-a6c6-bccfe83b5267";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
