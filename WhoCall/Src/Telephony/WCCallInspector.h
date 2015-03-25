@@ -34,7 +34,7 @@
 
 //
 -(NSString*)recordsPath;
-- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor*)color;
+- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor *)color time:(NSDate*)date;
 - (NSArray*)records;
 
 @end

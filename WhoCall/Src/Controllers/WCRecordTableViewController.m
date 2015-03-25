@@ -71,7 +71,7 @@
              location = [NSString stringWithFormat:@"%@  ",location];
          }
          if (kWCLiarPhoneNone == liarType) {
-             [self updateArr_records_reverse:num sign:[NSString stringWithFormat:@"%@%@",location,@"O(∩_∩)O~"] color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+             [self updateArr_records_reverse:num sign:[NSString stringWithFormat:@"%@%@",location,@"🌎"] color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
          }else{
              [self updateArr_records_reverse:num sign:[NSString stringWithFormat:@"%@%@",location,liarDetail] color:[UIColor redColor]];
          }
@@ -104,13 +104,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return arr_records.count;
 }

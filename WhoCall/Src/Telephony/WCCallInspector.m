@@ -90,6 +90,7 @@
     // 以下皆为来电状态处理
     NSString *number = call.phoneNumber;
     self.incomingPhoneNumber = number;
+    NSDate* callTime = [NSDate date];
     
     BOOL isContact = [[WCAddressBook defaultAddressBook] isContactPhoneNumber:number];
     
@@ -101,10 +102,13 @@
         //
         NSString *location = [[WCPhoneLocator sharedLocator] locationForPhoneNumber:number];
         if(location) callerName = [NSString stringWithFormat:@"%@  %@",location,callerName];
-        [self addRecord:number sign:callerName color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+        [self addRecord:number sign:callerName color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] time:callTime];
         //
         return;
     }
+    
+    //先添加记录，防止遗漏
+    [self addRecord:number sign:@"" color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] time:callTime];
     
     // 检查归属地
     void (^checkPhoneLocation)(void) = ^{
@@ -115,11 +119,11 @@
                 NSString *msg = [NSString stringWithFormat:@"%@电话", location];
                 [self notifyMessage:msg forPhoneNumber:number];
                 //
-                [self addRecord:number sign:msg color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+                [self addRecord:number sign:msg color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] time:callTime];
                 //
             }
         }else{
-            [self addRecord:number sign:@"" color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+            [self addRecord:number sign:@"" color:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] time:callTime];
         }
     };
     
@@ -143,7 +147,7 @@
                      [self notifyMessage:liarDetail forPhoneNumber:number];
                  }
                  //
-                 [self addRecord:number sign:liarDetail color:[UIColor redColor]];
+                 [self addRecord:number sign:liarDetail color:[UIColor redColor] time:callTime];
                  //
              } else {
                  checkPhoneLocation();
@@ -313,11 +317,16 @@
     return documentsDirectory;
 }
 
-- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor *)color
+- (void)addRecord:(NSString*)number sign:(NSString*)sign color:(UIColor *)color time:(NSDate*)date
 {
     NSArray* arr = [self records];
     NSMutableArray* marr = [NSMutableArray arrayWithArray:arr];
-    NSDate* date = [NSDate date];
+    for (NSDictionary* dic in arr) {
+        if ([date isEqualToDate:[dic objectForKey:@"date"]]) {
+            [marr removeObject:dic];
+            break;
+        }
+    }
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:number,@"number",
                           sign,@"sign",
                           date,@"date",
