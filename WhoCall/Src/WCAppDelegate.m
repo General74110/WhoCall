@@ -22,6 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //处理本地通知
+    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotification) {
+        [self application:application didReceiveLocalNotification:localNotification];
+    }
     //注册本地推送
     if([UIDevice currentDevice].systemVersion.floatValue >= 8){
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
@@ -31,6 +36,7 @@
          UIRemoteNotificationTypeSound];
     }
     application.applicationIconBadgeNumber = 0;
+    [application cancelAllLocalNotifications];
     
     // prevent sleep
     self.sleepPreventer = [[MMPDeepSleepPreventer alloc] init];
@@ -64,6 +70,10 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [self.sleepPreventer stopPreventSleep];
+    
+    //处理本地通知
+    application.applicationIconBadgeNumber = 0;
+    [application cancelAllLocalNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
